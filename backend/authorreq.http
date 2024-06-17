@@ -1,0 +1,83 @@
+###
+POST http://localhost:4000/author-api/author
+Content-Type: application/json
+
+{
+    "userType":"author",
+    "username":"atharva",
+    "password":"atharva",
+    "email":"atharva@gmail.com"
+}
+
+### author login
+POST http://localhost:4000/author-api/login
+Content-Type: application/json
+
+{
+    "userType":"author",
+    "username":"atharva",
+    "password":"atharva"
+}
+
+###
+GET http://localhost:4000/author-api/article
+
+
+
+
+
+
+###add new article by author
+POST http://localhost:4000/author-api/article
+Content-Type: application/json
+
+{
+    "articleId":"{{$timestamp}}",
+    "title":"Fundamentals of JavaScript",
+    "category":"programming",
+    "content":"JavaScript is a high-level, often just-in-time compiled language that conforms to the ECMAScript standard.[11] It has dynamic typing, prototype-based object-orientation, and first-class functions. It is multi-paradigm, supporting event-driven, functional, and imperative programming styles. It has application programming interfaces (APIs) for working with text, dates, regular expressions, standard data structures, and the Document Object Model (DOM).",
+    "dateOfCreation":"{{$datetime iso8601}}",
+    "dateOfModification":"{{$datetime iso8601}}",
+    "username":"atharva",
+    "comments":[],
+    "status":true
+}
+
+
+### update artcle by author
+PUT http://localhost:4000/author-api/article
+Content-Type: application/json
+
+{
+    "articleId":"1709399185",
+    "title":"Fundamentals of JavaScript",
+    "category":"programming",
+    "content":"Atharva Reddy's JavaScript is a high-level, often just-in-time compiled language that conforms to the ECMAScript standard.[11] It has dynamic typing, prototype-based object-orientation, and first-class functions. It is multi-paradigm, supporting event-driven, functional, and imperative programming styles. It has application programming interfaces (APIs) for working with text, dates, regular expressions, standard data structures, and the Document Object Model (DOM).",
+    "dateOfCreation":"2024-03-02T17:06:25.233Z",
+    "dateOfModification":"{{$datetime iso8601}}",
+    "username":"atharva",
+    "comments":[],
+    "status":true
+}
+
+
+###soft delete an article by article id
+PUT http://localhost:4000/author-api/article/1709399185
+Content-Type: application/json
+
+{
+    "articleId":"1709399185",
+    "title":"Fundamentals of JavaScript",
+    "category":"programming",
+    "content":"Atharva Reddy's JavaScript is a high-level, often just-in-time compiled language that conforms to the ECMAScript standard.[11] It has dynamic typing, prototype-based object-orientation, and first-class functions. It is multi-paradigm, supporting event-driven, functional, and imperative programming styles. It has application programming interfaces (APIs) for working with text, dates, regular expressions, standard data structures, and the Document Object Model (DOM).",
+    "dateOfCreation":"2024-03-02T17:06:25.233Z",
+    "dateOfModification":"{{$datetime iso8601}}",
+    "username":"atharva",
+    "comments":[],
+    "status":true
+}
+
+
+###get article of same author by username
+GET http://localhost:4000/author-api/articles/atharva
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImF0aGFydmEiLCJpYXQiOjE3MTA5MTQ4NTIsImV4cCI6MTcxMTAwMTI1Mn0.9EirtWqnpq8oJIJvxTYBBpt5gwwLQnCD5dwjZf2GGvU
